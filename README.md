@@ -22,17 +22,25 @@ pipenv run python main.py --url https://data.cityofgainesville.org/resource/gvua
 
 #### main.py
 
-download_url(url) - this function was used to download and return the json contents, if the url exists.\n
+download_url(url) - this function was used to download and return the json contents, if the url exists.
+
 download_file(file) - this function was used to download and return the json contents, if the local file exists.
+
 format_data(data, offset, limit) - this function was used to parse through the .json data and extract the desired elements into a list format.
+
 print_crimes(report) - this function was used to print out the elements into the deisred, thorn seperated, output.
 
 #### test_crimes.py
 test_download_url() - Test for url download functionality by making sure page is not none
+
 test_offset_limit() - Test for file download functionality by making sure download is not none
+
 test_incident_type() - Test for offset and limit functionality by making sure the expected starting crime and number of crimes matches in the simulated data
+
 test_report_offense() - Test for making sure the correct report date and offense date are extracted from the data by comparing it to the expected output of the simulated data
+
 test_latitude_longitude() - Test for making sure the latitude and longitude are correct and properly extracted from the data by comparing it to the expected output
+
 test_formatting() - Test for making sure that the information desired is printed in the proper thorn seperated format by comparing the system printout to the expected output
 
 ## Bugs and Assumptions
