@@ -22,9 +22,9 @@ pipenv run python main.py --url https://data.cityofgainesville.org/resource/gvua
 
 #### main.py
 
-download_url(url) - this function was used to download and read in the .json url.
-download_file(file) - this function was used to download and read in the .json file.
-format_data(data, offset, limit) - this function was used to parse through the .json data and extract the desired elements into a list.
+download_url(url) - this function was used to download and return the json contents, if the url exists.
+download_file(file) - this function was used to download and return the json contents, if the local file exists.
+format_data(data, offset, limit) - this function was used to parse through the .json data and extract the desired elements into a list format.
 print_crimes(report) - this function was used to print out the elements into the deisred, thorn seperated, output.
 
 ## Bugs and Assumptions

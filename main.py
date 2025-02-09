@@ -3,6 +3,7 @@ import json
 import sys
 import requests
 
+#Function to download the url and return it's contents if it exists
 def download_url(url):
     page = requests.get(url)
     if page.status_code == 200:
@@ -11,6 +12,7 @@ def download_url(url):
         print("Error, could not connect to the URL")
         return None
 
+#Function to download a local json file and return it's contents if it exists
 def download_file(file):
     if file is not None:
         download = open(file)
@@ -18,6 +20,7 @@ def download_file(file):
     else:
         return None
 
+#Function to reurn desired elements of incident type, report date, offense date, latitude, and longitude, in a list format
 def format_data(data, offset, limit):
     crimes = []
     for i in range(offset, offset+limit):
@@ -29,10 +32,12 @@ def format_data(data, offset, limit):
         crimes.append([incident_type, report_date, offense_date, latitude, longitude])
     return crimes
 
+#Function to print out the crimes with their information being seperated by thorns
 def print_crimes(report):
     for i in range(len(report)):
         print(f"{report[i][0]}þ{report[i][1]}þ{report[i][2]}þ{report[i][3]}þ{report[i][4]}")
 
+#Main function to run all of the previous functions cohesively
 def main(url, file, offset, limit):
     if url is not None:
         data = download_url(url)
@@ -44,6 +49,7 @@ def main(url, file, offset, limit):
     else:
         print("Error: no data to be read. Please enter a url or file.")
 
+#Will recieve the user inputs as arguments and pass them into the main function if enough arguments are provided otherwise it will print help
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--url", type=str, required=False, help="The source location on the web.")
