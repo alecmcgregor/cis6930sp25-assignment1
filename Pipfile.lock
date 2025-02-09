@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "64bb2fb094d0a61b3732f6ee73afca341988c34ef23bb35a0a551e3d0466e88a"
+            "sha256": "cc14de3f1419231422bafa85afa342a76d0a80fc7e56e1549a30fe15809d6e49"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,10 @@
         ]
     },
     "default": {
+        "assignment1": {
+            "editable": true,
+            "file": "."
+        },
         "black": {
             "hashes": [
                 "sha256:030b9759066a4ee5e5aca28c3c77f9c64789cdd4de8ac1df642c40b708be6171",

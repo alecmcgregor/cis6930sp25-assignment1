@@ -14,4 +14,4 @@ Task = "https://ufdatastudio.com/cis6930sp25/assignments/1"
 repository = "https://github.com/alecmcgregor/cis6930sp25-assignment1"
 
 [tool.pytest.ini_options]
-testpaths = ["test_crimes.py"]
+testpaths = ["tests"]
