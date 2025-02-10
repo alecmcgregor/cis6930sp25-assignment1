@@ -16,7 +16,7 @@ pipenv run python main.py --url https://data.cityofgainesville.org/resource/gvua
 
 ## Example
 
-![video](video)
+Video: https://youtu.be/ISV3MBGvbx0
 
 ## Features and functions
 
