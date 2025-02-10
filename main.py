@@ -1,16 +1,39 @@
 import argparse
 import json
 import sys
-import requests
+import urllib.request
 
-#Function to download the url and return it's contents if it exists
+#Function to download json data from a url provided to us by Dr.Grant
+def fetchdata(url, isjson=True):
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+        'Connection': 'keep-alive',
+        'Referer': 'https://www.google.com/',
+        'DNT': '1',  # Do Not Track request header
+        'Upgrade-Insecure-Requests': '1',
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache',
+        'Sec-Fetch-Dest': 'document',
+        'Sec-Fetch-Mode': 'navigate',
+        'Sec-Fetch-Site': 'none',
+        'Sec-Fetch-User': '?1',
+    }
+
+
+    req = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(req) as response:
+        data = response.read().decode('utf-8')
+        if isjson:
+            return json.loads(data)
+        else:
+            return data
+
+#Function to download the url and return it's contents
 def download_url(url):
-    page = requests.get(url)
-    if page.status_code == 200:
-        return page.json()
-    else:
-        print("Error, could not connect to the URL")
-        return None
+    data = fetchdata(url)
+    return data
 
 #Function to download a local json file and return it's contents if it exists
 def download_file(file):
